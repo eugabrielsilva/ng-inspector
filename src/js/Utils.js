@@ -36,7 +36,7 @@ Utils.directiveNormalize = function(name) {
 /**
  * Receives a service factory and returns an injection token. Only used in
  * older versions of AngularJS that did not expose `.annotate`
- * 
+ *
  * Adapted from https://github.com/angular/angular.js/blob/0baa17a3b7ad2b242df2b277b81cebdf75b04287/src/auto/injector.js
  **/
 Utils.annotate = function(fn) {
@@ -48,13 +48,15 @@ Utils.annotate = function(fn) {
 			if (fn.length) {
 				fnText = fn.toString().replace(STRIP_COMMENTS, '');
 				argDecl = fnText.match(FN_ARGS);
-				var argDecls = argDecl[1].split(FN_ARG_SPLIT);
-				for (var i = 0; i < argDecls.length; i++) {
-					var arg = argDecls[i];
-					arg.replace(FN_ARG, function(all, underscore, name) {
-						$inject.push(name);
-					});
-				};
+				if(argDecl && argDecl[1]){
+					var argDecls = argDecl[1].split(FN_ARG_SPLIT);
+					for (var i = 0; i < argDecls.length; i++) {
+						var arg = argDecls[i];
+						arg.replace(FN_ARG, function(all, underscore, name) {
+							$inject.push(name);
+						});
+					};
+				}
 			}
 			fn.$inject = $inject;
 		}

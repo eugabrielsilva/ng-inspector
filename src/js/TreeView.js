@@ -147,7 +147,7 @@ TreeView.appItem = function(label, node) {
 	item.element.addEventListener('mouseover', function(event) {
 		if(event.target.nodeName === 'LABEL' && event.target.parentNode.classList.contains('ngi-scope')) {
 			// Do not add a layer when mouse comes from ngi-annotation
-			if (event.relatedTarget.classList.contains('ngi-annotation')) return false;
+			if (event.relatedTarget && event.relatedTarget.classList.contains('ngi-annotation')) return false;
 
 			var item = event.target.parentNode.item;
 			if ( item.node && !window.ngInspector.pane.isResizing) {
