@@ -4,18 +4,18 @@ npm-debug.log
 
 # Generated files
 
-ng-inspector.firefox/*.xpi
-ng-inspector.firefox/data/icons/
-ng-inspector.firefox/data/ng-inspector.js
-ng-inspector.firefox/data/stylesheet.css
+# ng-inspector.firefox/*.xpi
+# ng-inspector.firefox/data/icons/
+# ng-inspector.firefox/data/ng-inspector.js
+# ng-inspector.firefox/data/stylesheet.css
 
-ng-inspector.safariextension/icons/
-ng-inspector.safariextension/ng-inspector.js
-ng-inspector.safariextension/stylesheet.css
+# ng-inspector.safariextension/icons/
+# ng-inspector.safariextension/ng-inspector.js
+# ng-inspector.safariextension/stylesheet.css
 
-ng-inspector.chrome/icons/
-ng-inspector.chrome/ng-inspector.js
-ng-inspector.chrome/stylesheet.css
+# ng-inspector.chrome/icons/
+# ng-inspector.chrome/ng-inspector.js
+# ng-inspector.chrome/stylesheet.css
 
-test/e2e/lib/ng-inspector.js
-test/e2e/lib/stylesheet.css
+# test/e2e/lib/ng-inspector.js
+# test/e2e/lib/stylesheet.css
