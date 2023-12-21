@@ -30,6 +30,7 @@ Object.defineProperty(window, 'angular', {
 function wrapBootstrap() {
 	// Hook Angular's manual bootstrapping mechanism to catch applications
 	// that do not use the "ng-app" directive
+	if (_angular.hasOwnProperty('bootstrap')) return;
 	Object.defineProperty(_angular, 'bootstrap', {
 		get: function() {
 			// Return falsey val when angular hasn't assigned it's own bootstrap
