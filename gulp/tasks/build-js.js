@@ -18,6 +18,7 @@ gulp.task('build:js', function () {
     .on('error', gutil.log)
     .pipe(gulp.dest(format('%s/', config.safariDir)))
     .pipe(gulp.dest(format('%s/', config.chromeDir)))
+    .pipe(gulp.dest(format('%s/', config.chromev3Dir)))
     .pipe(gulp.dest(format('%s/data/', config.firefoxDir)))
     .pipe(gulp.dest(format('%s/lib/', config.e2eDir)));
 });

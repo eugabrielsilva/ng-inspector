@@ -6,5 +6,6 @@ gulp.task('build:icons', function() {
 	return gulp.src([format('%s/*.png', config.iconsDir)])
 		.pipe(gulp.dest(format('%s/icons/', config.safariDir)))
 		.pipe(gulp.dest(format('%s/icons/', config.chromeDir)))
+		.pipe(gulp.dest(format('%s/icons/', config.chromev3Dir)))
 		.pipe(gulp.dest(format('%s/data/icons/', config.firefoxDir)));
 });
