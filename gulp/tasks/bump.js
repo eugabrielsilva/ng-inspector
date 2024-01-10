@@ -44,11 +44,17 @@ function bump(release) {
 		var plistStr = plist.build(info).toString();
 		fs.writeFileSync(format('%s/Info.plist', config.safariDir), plistStr);
 
-		// Bump the version in manifest.json
+		// Bump the version in manifest.json - chrome v2
 		var manifest = require(format('./%s/manifest.json', config.chromeDir));
 		manifest.version = semver.inc(manifest.version, release);
 		var manifestStr = JSON.stringify(manifest, null, 2);
 		fs.writeFileSync(format('./%s/manifest.json', config.chromeDir), manifestStr);
+
+		// Bump the version in manifest.json - chrome v3
+		var manifest = require(format('./%s/manifest.json', config.chromev3Dir));
+		manifest.version = semver.inc(manifest.version, release);
+		var manifestStr = JSON.stringify(manifest, null, 2);
+		fs.writeFileSync(format('./%s/manifest.json', config.chromev3Dir), manifestStr);
 
 		// Bump the version in manifest.json
 		var ffpkg = require(format('./%s/package.json', config.firefox));
@@ -57,7 +63,7 @@ function bump(release) {
 		fs.writeFileSync(format('./%s/package.json', config.firefoxDir), ffpkgString);
 
 		// Git add
-		run('git', ['add', 'package.json', format('%s/Info.plist', config.safariDir), format('%s/manifest.json', config.chromeDir), format('%s/package.json', config.firefoxDir)], function() {
+		run('git', ['add', 'package.json', format('%s/Info.plist', config.safariDir), format('%s/manifest.json', config.chromeDir), format('%s/manifest.json', config.chromev3Dir), format('%s/package.json', config.firefoxDir)], function() {
 
 			// Git commit
 			var commitMsg = 'Prepare for ' + pkg.version;
